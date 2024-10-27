@@ -15,20 +15,6 @@ struct Node* createNode(int data) {
     return newNode;
 }
 
-// Function to insert a node at the end
-void insertAtEnd(struct Node** head, int data) {
-    struct Node* newNode = createNode(data);
-    if (*head == NULL) {
-        *head = newNode;
-        return;
-    }
-    struct Node* temp = *head;
-    while (temp->next != NULL) {
-        temp = temp->next;
-    }
-    temp->next = newNode;
-}
-
 // Function to delete a node at the beginning
 void deleteAtBeginning(struct Node** head) {
     if (*head == NULL) {
@@ -96,6 +82,20 @@ void displayList(struct Node* head) {
         temp = temp->next;
     }
     printf("NULL\n");
+}
+
+// Function to insert a node at the end
+void insertAtEnd(struct Node** head, int data) {
+    struct Node* newNode = createNode(data);
+    if (*head == NULL) {
+        *head = newNode;
+        return;
+    }
+    struct Node* temp = *head;
+    while (temp->next != NULL) {
+        temp = temp->next;
+    }
+    temp->next = newNode;
 }
 
 // Function to create a linked list from user input
