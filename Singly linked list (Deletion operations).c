@@ -15,13 +15,6 @@ struct Node* createNode(int data) {
     return newNode;
 }
 
-// Function to insert a node at the beginning
-void insertAtBeginning(struct Node** head, int data) {
-    struct Node* newNode = createNode(data);
-    newNode->next = *head;
-    *head = newNode;
-}
-
 // Function to insert a node at the end
 void insertAtEnd(struct Node** head, int data) {
     struct Node* newNode = createNode(data);
@@ -33,29 +26,6 @@ void insertAtEnd(struct Node** head, int data) {
     while (temp->next != NULL) {
         temp = temp->next;
     }
-    temp->next = newNode;
-}
-
-// Function to insert a node at a specific position
-void insertAtPosition(struct Node** head, int data, int position) {
-    if (position == 0) {
-        insertAtBeginning(head, data);
-        return;
-    }
-    
-    struct Node* newNode = createNode(data);
-    struct Node* temp = *head;
-    
-    for (int i = 0; i < position - 1; i++) {
-        if (temp == NULL) {
-            printf("The previous node is null. Insertion failed.\n");
-            free(newNode);
-            return;
-        }
-        temp = temp->next;
-    }
-    
-    newNode->next = temp->next;
     temp->next = newNode;
 }
 
