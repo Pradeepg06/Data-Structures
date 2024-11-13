@@ -9,6 +9,7 @@ typedef struct Node {
 void push(Node **top, int val) {
     Node* newnode = malloc(sizeof(Node));
     if (newnode == NULL) {
+        printf("memory location failed for push operation\n");
         return;
     }
     newnode->data = val;
@@ -30,6 +31,7 @@ void pop(Node **top) {
 void enqueue(Node **front, Node **rear, int val) {
     Node* newnode = malloc(sizeof(Node));
     if (newnode == NULL) {
+        printf("memory location failed for enqueue operation\n");
         return;
     }
     newnode->data = val;
