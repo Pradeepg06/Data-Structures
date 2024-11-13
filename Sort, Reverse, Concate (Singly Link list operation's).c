@@ -108,12 +108,12 @@ int main() {
     Node *list2 = NULL;
 
     // Insert elements into list1
-    list1 = insertAtBeginning(list1, 1);
+    list1 = insertAtBeginning(list1, 4);
     list1 = insertAtBeginning(list1, 2);
-    list1 = insertAtBeginning(list1, 3);
+    list1 = insertAtBeginning(list1, 1);
 
     // Insert elements into list2
-    list2 = insertAtBeginning(list2, 4);
+    list2 = insertAtBeginning(list2, 3);
     list2 = insertAtBeginning(list2, 5);
 
     printf("\nAfter Sorting:\n");
@@ -124,6 +124,10 @@ int main() {
     printf("\nAfter concatenation:\n");
     printf("List: ");
     list1 = concatLists(list1, list2);
+    displayList2(list1);
+
+    printf("\nAfter Sorting:\n");
+    list1 = sortList(list1);
     displayList2(list1);
 
     printf("\nAfter reversing:\n");
