@@ -20,8 +20,9 @@ Node* createNode(int data) {
 }
 
 // Function to insert a new node at the beginning of the linked list
-Node *insertAtBeginning(Node *head, int data) {
-     Node *newNode = createNode(data); 
+Node *insertAtBeginning(Node *head, int data)
+{
+     Node *newNode = createNode(data);
      newNode->next = head;
      return newNode;
 }
@@ -29,23 +30,27 @@ Node *insertAtBeginning(Node *head, int data) {
 // Concatenation
 Node *concatLists(Node *head1, Node *head2)
 {
-Node* temp = head1;
-    while (temp->next != NULL) {
+    Node* temp = head1;
+    while (temp->next != NULL)
+    {
         temp = temp->next;
     }
     temp->next = head2;
     return head1;
 }
 
-// Sorting 
-Node* sortList(Node* head) {
+// Sorting
+Node *sortList(Node *head) {
     if (head == NULL) return NULL;
 
-    Node* i = head;
-    while (i != NULL) {
-        Node* j = i->next;
-        while (j != NULL) {
-            if (i->data > j->data) {
+    Node *i = head;
+    while (i != NULL)
+    {
+        Node *j = i->next;
+        while (j != NULL)
+        {
+            if (i->data > j->data)
+            {
                 int temp = i->data;
                 i->data = j->data;
                 j->data = temp;
@@ -59,11 +64,13 @@ Node* sortList(Node* head) {
 
 
 // Reversing
-Node* reverseList(Node* head) {
-    Node* prev = NULL;
-    Node* current = head;
-    Node* next = NULL;
-    while (current != NULL) {
+Node *reverseList(Node *head)
+{
+    Node *prev = NULL;
+    Node *current = head;
+    Node *next = NULL;
+    while (current != NULL)
+    {
         next = current->next;
         current->next = prev;
         prev = current;
@@ -72,18 +79,21 @@ Node* reverseList(Node* head) {
     return prev;
 }
 
-// Display 
+// Display
 
 // Function to display a only one list
-void displayList2(Node* head) {
-    while (head != NULL) {
+void displayList2(Node* head)
+{
+    while (head != NULL)
+    {
         printf("%d -> ", head->data);
         head = head->next;
     }
     printf("NULL\n");
 }
 // Function to display both lists
-void displayList1(Node* head1, Node* head2) {
+void displayList1(Node* head1, Node* head2)
+{
     printf("List 1: ");
     displayList2(head1);
     printf("List 2: ");
@@ -102,20 +112,20 @@ int main() {
 
     // Insert elements into list2
     list2 = insertAtBeginning(list2, 4);
-    list2 = insertAtBeginning(list2, 5); 
+    list2 = insertAtBeginning(list2, 5);
 
-    printf("After Sorting:\n");
+    printf("\nAfter Sorting:\n");
     list1 = sortList(list1);
     list2 = sortList(list2);
     displayList1(list1, list2);
-    
-    printf("After concatenation:\n");
+
+    printf("\nAfter concatenation:\n");
     printf("List: ");
     list1 = concatLists(list1, list2);
     displayList2(list1);
-    
-    printf("After reversing:\n");
-    printf("List: "); 
+
+    printf("\nAfter reversing:\n");
+    printf("List: ");
     list1 = reverseList(list1);
     displayList2(list1);
     return 0;
