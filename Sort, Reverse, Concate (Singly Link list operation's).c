@@ -108,13 +108,17 @@ int main() {
     Node *list2 = NULL;
 
     // Insert elements into list1
-    list1 = insertAtBeginning(list1, 4);
-    list1 = insertAtBeginning(list1, 2);
     list1 = insertAtBeginning(list1, 1);
+    list1 = insertAtBeginning(list1, 2);
+    list1 = insertAtBeginning(list1, 4);
+    printf("\nList1: ");
+    displayList2(list1);
 
     // Insert elements into list2
     list2 = insertAtBeginning(list2, 3);
     list2 = insertAtBeginning(list2, 5);
+    printf("List2: ");
+    displayList2(list2);
 
     printf("\nAfter Sorting:\n");
     list1 = sortList(list1);
@@ -127,6 +131,7 @@ int main() {
     displayList2(list1);
 
     printf("\nAfter Sorting:\n");
+    printf("List: ");
     list1 = sortList(list1);
     displayList2(list1);
 
