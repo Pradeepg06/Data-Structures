@@ -6,10 +6,11 @@ typedef struct Node {
     struct Node* next;
 } Node;
 
+//Stack Operations
 void push(Node **top, int val) {
     Node* newnode = malloc(sizeof(Node));
     if (newnode == NULL) {
-        printf("memory location failed for push operation\n");
+        printf("Memory location failed for push operation\n");
         return;
     }
     newnode->data = val;
@@ -28,17 +29,18 @@ void pop(Node **top) {
     free(temp);
 }
 
+// Queue Operations
 void enqueue(Node **front, Node **rear, int val) {
     Node* newnode = malloc(sizeof(Node));
     if (newnode == NULL) {
-        printf("memory location failed for enqueue operation\n");
+        printf("Memory location failed for enqueue operation\n");
         return;
     }
     newnode->data = val;
     newnode->next = NULL;
     if (*front == NULL) {
         *front = *rear = newnode;
-    } 
+    }
     else {
         (*rear)->next = newnode;
         *rear = newnode;
@@ -76,7 +78,7 @@ int main(void) {
     push(&top, 30);
     push(&top, 40);
     display(top);
-    
+
     pop(&top);
     display(top);
 
