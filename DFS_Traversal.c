@@ -5,20 +5,18 @@
 void dfs(int graph[MAX][MAX], int visited[MAX], int vertex, int vertices) {
     // Mark the current vertex as visited
     visited[vertex] = 1;
+    printf("%d ", vertex);  // Print the visited vertex (for traversal order)
 
     // Visit all unvisited neighbors
-    for (int i = 0; i < vertices; i++) 
-    {
-        if (graph[vertex][i] == 1 && !visited[i]) 
-        {
-            dfs(graph, visited, i, vertices);
+    for (int i = 0; i < vertices; i++) {
+        if (graph[vertex][i] == 1 && !visited[i]) {
+            dfs(graph, visited, i, vertices);  // Recursive DFS call
         }
     }
 }
 
 // Main function
-int main() 
-{
+int main() {
     int graph[MAX][MAX], visited[MAX];
     int vertices, edges, i, j;
 
@@ -28,41 +26,34 @@ int main()
 
     // Input the adjacency matrix
     printf("Enter the adjacency matrix (Aij):\n");
-    for (i = 0; i < vertices; i++) 
-    {
-        for (j = 0; j < vertices; j++) 
-        {
+    for (i = 0; i < vertices; i++) {
+        for (j = 0; j < vertices; j++) {
             scanf("%d", &graph[i][j]);
         }
     }
 
     // Initialize visited array
-    for (i = 0; i < vertices; i++) 
-    {
+    for (i = 0; i < vertices; i++) {
         visited[i] = 0;
     }
 
     // Perform DFS starting from vertex 0
-    dfs(graph, visited, 0, vertices);
+    printf("\nDFS Traversal Order: ");
+    dfs(graph, visited, 0, vertices);  // Start DFS from vertex 0
 
     // Check if all vertices are visited
     int isConnected = 1;  // Assume the graph is connected
-    for (i = 0; i < vertices; i++) 
-    {
-        if (visited[i] == 0) 
-        {
+    for (i = 0; i < vertices; i++) {
+        if (visited[i] == 0) {
             isConnected = 0;  // Found a vertex that is not reachable
             break;
         }
     }
 
-    // Print the result
-    if (isConnected) 
-    {
+    // Print the result of connectivity
+    if (isConnected) {
         printf("\nThe graph is connected.\n");
-    } 
-    else 
-    {
+    } else {
         printf("\nThe graph is not connected.\n");
     }
 
